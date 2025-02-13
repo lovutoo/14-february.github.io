@@ -1,0 +1,203 @@
+/* style.css */
+
+/* Сброс базовых стилей */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  background: #1a1a1a; /* Тёмный фон для параллакса */
+  font-family: Arial, sans-serif;
+}
+
+/* Стили для формы авторизации */
+#login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-form {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#login-form h2 {
+  margin-top: 0;
+}
+
+#login-form input {
+  padding: 10px;
+  width: 80%;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+#login-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#login-error {
+  margin-top: 10px;
+  color: red;
+  display: none;
+}
+
+/* Параллакс-фон с сердцами */
+#heart-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Стили для сердечек */
+.heart {
+  position: absolute;
+  transition: transform 0.3s ease, color 0.3s ease;
+  opacity: 0; /* начальное значение для анимации появления */
+}
+
+/* После появления – сохраняем видимость */
+.heart.appeared {
+  opacity: 1;
+}
+
+/* Анимация появления */
+.heart.appear {
+  animation: appear 1s ease forwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Внутренний элемент сердца */
+.heart-inner {
+  display: block;
+  font-size: 24px;
+  color: #ff69b4; /* базовый розовый цвет */
+  user-select: none;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+/* Анимация биения при переключении слайдов */
+@keyframes beat {
+  0% {
+    transform: scale(1);
+    color: #ff69b4;
+  }
+  50% {
+    transform: scale(1.2);
+    color: #ff1493;
+  }
+  100% {
+    transform: scale(1);
+    color: #ff69b4;
+  }
+}
+
+.beat {
+  animation: beat 0.5s ease-in-out;
+}
+
+/* Слайдер */
+#slider {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Содержимое слайдера */
+.slider-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Блок с изображением */
+.slider-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  padding: 20px;
+}
+
+.slider-image img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+/* Блок с текстом */
+.slider-text {
+  flex: 1;
+  min-width: 300px;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Контейнер для кнопок слайдера */
+.slider-controls {
+  text-align: center;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-controls button {
+  background: #ff1493;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider-controls button:hover {
+  background: #ff69b4;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  #slider {
+    width: 90%;
+    margin: 20px auto;
+  }
+  
+  .slider-content {
+    flex-direction: column;
+  }
+  
+  .slider-image, .slider-text {
+    min-width: 100%;
+    padding: 10px;
+  }
+}

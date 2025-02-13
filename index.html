@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Это тебе)❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Форма авторизации -->
+  <div id="login-overlay">
+    <form id="login-form">
+      <h2>Введите пароль</h2>
+      <input type="password" id="password" placeholder="Пароль" required>
+      <button type="submit">Войти</button>
+      <div id="login-error">Неверный пароль</div>
+    </form>
+  </div>
+
+  <!-- Параллакс-фон с сердцами -->
+  <div id="heart-background"></div>
+  
+  <!-- Слайдер -->
+  <div id="slider">
+    <div class="slider-content">
+      <div class="slider-image">
+        <img src="images/slide1.jpg" alt="Слайд" id="slide-image">
+      </div>
+      <div class="slider-text" id="slide-text">
+        <h2>Заголовок слайда</h2>
+        <p>Описание слайда...</p>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button id="prev-slide">Назад</button>
+      <button id="next-slide">Вперёд</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
